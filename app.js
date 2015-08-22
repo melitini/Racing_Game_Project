@@ -1,41 +1,63 @@
-// OOP Racing Game example boilerplate code
 
-function Game() {
-  //Create a new instance of player 1
-  //this.player1 = ...
 
-  //Do the same for a player 2
-  //this.player2 = ...
+// // OOP Racing Game example boilerplate code
 
-  //Create the track
-  //this.track = ...
-}
+// function Game() {
+//   //Create a new instance of player 1
+//   //this.player1 = ...
 
-// `Game.prototype.init` kicks off a new game with a board and two players
-Game.prototype.init = function() {
-  //
-};
+//   //Do the same for a player 2
+//   //this.player2 = ...
+
+//   //Create the track
+//   //this.track = ...
+// }
+
+// // `Game.prototype.init` kicks off a new game with a board and two players
+// Game.prototype.init = function() {
+//   //
+// };
 
 // A starter Player constructor.
-function Player(team) {
-  //this.name = ...
-  //this.position = ...
+function Player(playerName, position) {
+  this.playerName = playerName;
+  this.position = position;
 };
+
+var player1 = new Player("Player 1", $('.startPos1').append("P1"));
+var player2 = new Player("Player 2", $('.startPos2').append("P2"));
+
 
 // Remember: prototypes are shared functions between all game instances
-Player.prototype.move = function() {
-  //update player's position
-};
+// Player.prototype.move = function() {
+//   update player's position
+// };
+
+Player.constructor.prototype.move = $(document).keypress(function(event) {   
+      var keycode = (event.keyCode ? event.keyCode : event.which); 
+      var p1Moves = 0;
+      var p2Moves = 0;
+   
+       if(keycode == '97'){ 
+        $('.startPos1').animate({'margin-left': '+=10px' }, 50);
+          p1Moves++;
+      } 
+       if(keycode == '108') {
+        $('.startPos2').animate({'margin-left': '+=10px' }, 50);
+          p2Moves++;
+      }
+});
 
 
-// A starter Track constructor.
-function Track() {
-  //Tracks the cells of the board instance
-  //this.$cells = ...
+// // A starter Track constructor.
+// function Track() {
+//   //Tracks the cells of the board instance
+//   //this.$cells = ...
 
-  //Store any other properties that board may have below, such as a reset option
-};
+//   //Store any other properties that board may have below, such as a reset option
+// };
 
-// Start the game!
-var game = new Game();
-game.init();
+// // Start the game!
+// var game = new Game();
+// game.init();
+
