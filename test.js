@@ -31,11 +31,6 @@ Game.prototype.init = function() {
 
 // A starter Player constructor.
 
-function Player(team) {
-  //this.name = ...
-  //this.position = ...
-};
-
 
 function Player(playerName, position) {
   this.playerName = playerName;
@@ -43,14 +38,37 @@ function Player(playerName, position) {
 };
 
 var player1 = new Player("Player 1", $('.startPos1').append("P1"));
-var player2 = new Player ("Player 2", $('startPos2').append("P2"));
+var player2 = new Player("Player 2", $('.startPos2').append("P2"));
 
 
 // Remember: prototypes are shared functions between all game instances
-Player.prototype.move = function() {
-  //update player's position
-};
+Player.constructor.prototype.move = function() {
 
+  $(document).keypress(function(event) {  
+        
+  var keycode = (event.keyCode ? event.keyCode : event.which); 
+  var p1Moves = 0;
+  var p2Moves = 0;
+   
+   if(keycode == '97'){ 
+    $('.startPos1').animate({'margin-left': '+=10px' }, 50);
+      p1Moves++;
+  } 
+   if(keycode == '108') {
+    $('.startPos2').animate({'margin-left': '+=10px' }, 50);
+      p2Moves++;
+  }
+
+
+}
+});
+
+}
+
+
+Player.constructor.prototype.winner = {
+  if 
+}
 
 // A starter Track constructor.
 function Track() {
