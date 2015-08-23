@@ -13,10 +13,10 @@
 // }
 
 
-function Game (player1, player2, track) {
+function Game (player1, player2, winner) {
   this.player1 = player1;
   this.player2 = player2;
-  this.track = track;
+  this.winner = winner;
 }
 
 // `Game.prototype.init` kicks off a new game with a board and two players
@@ -25,9 +25,10 @@ function Game (player1, player2, track) {
 // };
 
 // A starter Player constructor.
-function Player(playerName, position) {
+function Player(playerName, position, wins) {
   this.playerName = playerName;
   this.position = position;
+  this.wins = wins;
 };
 
 var player1 = new Player("Player 1", $('.startPos1').append("P1"));
@@ -42,30 +43,72 @@ var player2 = new Player("Player 2", $('.startPos2').append("P2"));
 
       var p1Moves = 0;
       var p2Moves = 0;
-      var max = 30;
-Player.constructor.prototype.move = $(document).keypress(function(event) {   
-      var keycode = (event.keyCode ? event.keyCode : event.which); 
-      if (p1Moves < max) {
-       
-       if(keycode == '97'){ 
-          $('.startPos1').animate({'margin-left': '+=60px' }, 50);
-          p1Moves++
-        } if (p1Moves === 19) {
-          alert("player1 wins");
-        } 
+      var max = 11;
+      var p1Wins = 0;
+      var p2Wins = 0;
 
+Player.constructor.prototype.move = $(document).keypress(function moveIt(event) {   
+      
+      var keycode = (event.keyCode ? event.keyCode : event.which); 
+
+      if (p1Moves < max) {
+
+       if(keycode == '97'){ 
+          $('.startPos1').animate({'margin-left': '+=40px' }, 50);
+          p1Moves++
+        } 
       }
+
+      if (p2Moves < max) {
         
        if(keycode == '108') {
-          $('.startPos2').animate({'margin-left': '+=50px' }, 50);
+          $('.startPos2').animate({'margin-left': '+=40px' }, 50);
           p2Moves++;
-        }
-
-
+        } 
+      }
 });
 
 
+Player.constructor.prototype.winOnce = $(document).keypress(function () {
+  if (p1Moves >= 9) {
+    console.log("9moves");
+    p1Wins++;
+    alert("player1 wins");
+    $('.startPos1').animate({'margin-left': '-200px' }, 0);
+      p1Moves = 0;
 
+
+
+}
+  if (p2Moves >= 9) {
+    p2Wins++;
+    alert("player2 wins");
+
+  }
+});
+
+function softReset (){
+      $('.startPos1').css({'margin-left': 0 }, 0);
+      p1Moves = 0;
+}
+
+
+/*
+Player.constructor.prototype.softReset = $(document).keypress(function () {
+  this.position = 0;
+
+}
+
+
+Game.constructor.prototype.reset = function() {
+  this.player.position= 0;
+}
+
+var timeOut= setTimeout (function () {
+  Game.reset();
+},3000)
+
+*/
 /*
 
 
@@ -97,7 +140,7 @@ winner();
   //Store any other properties that board may have below, such as a reset option
 // };
 
-// // Start the game!
-// var game = new Game();
-// game.init();
+// Start the game!
+//var game = new Game();
+//game.init();
 
