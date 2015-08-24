@@ -4,18 +4,37 @@ body {
 	background-image: url("http://i.imgur.com/z5XQSWo.png");
 }
 
-.header-background {
-	background-color: rgba(176, 63, 191, 0.3);
-  	padding: 10px;
-  	border-radius: 50px;
+.headline {
+	font-family: 'Aguafina Script', cursive;
+	color: white;
+	font-size: 30px;
+	transform: rotate(-15deg);
+	text-align: center;
+}
 
+
+.header-content {
+	background-color: rgba(176, 63, 191, 0.3);
+  	margin-left: 80%;
+  	margin-top: -140px;
+  	padding: 1px 5px;
+  	border-radius: 20px;
+  	height: 50%;
+  	width: 15%;
+  	color: white;
+  	box-shadow: 10px 10px;
+  	text-align: center;
+}
+
+
+
+.button {
+	text-align: center;
+	margin-bottom: 5px;
 }
 
 .game-board {
 	width: 95%;
-	background-color: transparent;
-	border: dotted white 10px;
-
 	margin-right: auto;
 	margin-left: auto;
 }
@@ -23,25 +42,38 @@ body {
 .track1 {
 	width: 95%;
 	background-color: transparent;
+	border: dotted white 3px;
 	overflow: hidden;
 	margin-right: auto;
 	margin-left: auto;
 }
 
 .startPos1 {
-	background-color: black;
 	width: 350px;
 	float: left;
+
 }
 
+.startPos1 img {
+	height: 80px;
+	width: 60px;
+}
 
 .track2 {
 	width: 95%;
 	background-color: transparent;
+	border: dotted white 3px;
 	overflow: hidden;
 	margin-right: auto;
 	margin-left: auto;
 }
+
+.startPos2 img {
+	height: 80px;
+	width: 60px;
+
+}
+
 
 .finish-line {
 	background-color: blue;

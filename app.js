@@ -2,6 +2,12 @@
 $(function() {
 
 
+      var p1Moves = 0;
+      var p2Moves = 0;
+      var max = 11;
+      var p1Wins = 0;
+      var p2Wins = 0;
+
 function Game (player1, player2, winner) {
   this.player1 = player1;
   this.player2 = player2;
@@ -29,8 +35,8 @@ function Player(playerName, position, wins) {
   this.wins = wins;
 };
 
-var player1 = new Player("Player 1", $('.startPos1').append("P1"));
-var player2 = new Player("Player 2", $('.startPos2').append("P2"));
+var player1 = new Player("Player 1", $('.startPos1'));
+var player2 = new Player("Player 2", $('.startPos2'));
 
 
 
@@ -40,11 +46,6 @@ var player2 = new Player("Player 2", $('.startPos2').append("P2"));
 //   update player's position
 // };
 
-      var p1Moves = 0;
-      var p2Moves = 0;
-      var max = 11;
-      var p1Wins = 0;
-      var p2Wins = 0;
 
 Player.constructor.prototype.move = $(document).keypress (function(event) {   
       
@@ -72,26 +73,19 @@ Player.constructor.prototype.winOnce = $(document).keypress (function (winner) {
   
   if (p1Moves >= 9) {
     p1Wins++;
-    winner = player1;
-    $("p1Wins").text(p1Wins);
     alert("player1 wins");
-    //softReset();
     console.log(p1Wins + " p1Wins");
 }
 
   if (p2Moves >= 9) {
     p2Wins++;
-    winner = player2;
-    $("p2Wins").text(p2Wins);
     alert("player2 wins");
-    //softReset();
     console.log(p2Wins + " p2Wins");
   }
 
 });
 
 //<<<<<<<<<< Win Counter >>>>>>>>>>>>>>
-
 
 
 
