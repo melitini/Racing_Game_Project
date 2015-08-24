@@ -1,28 +1,25 @@
 
-
-
-// function Game() {
-  //Create a new instance of player 1
-  //this.player1 = ...
-
-  //Do the same for a player 2
-  //this.player2 = ...
-
-  //Create the track
-  //this.track = ...
-// }
+$(function() {
 
 
 function Game (player1, player2, winner) {
   this.player1 = player1;
   this.player2 = player2;
   this.winner = winner;
+  this.init();
 }
 
 // `Game.prototype.init` kicks off a new game with a board and two players
-// Game.prototype.init = function() {
-  //
-// };
+Game.prototype.init = function() {
+  $(document).keypress(function() {
+
+
+  });
+
+
+};
+
+
 
 // A starter Player constructor.
 function Player(playerName, position, wins) {
@@ -35,11 +32,12 @@ var player1 = new Player("Player 1", $('.startPos1').append("P1"));
 var player2 = new Player("Player 2", $('.startPos2').append("P2"));
 
 
+
+
 // Remember: prototypes are shared functions between all game instances
 // Player.prototype.move = function() {
 //   update player's position
 // };
-
 
       var p1Moves = 0;
       var p2Moves = 0;
@@ -47,7 +45,7 @@ var player2 = new Player("Player 2", $('.startPos2').append("P2"));
       var p1Wins = 0;
       var p2Wins = 0;
 
-Player.constructor.prototype.move = $(document).keypress(function moveIt(event) {   
+Player.constructor.prototype.move = $(document).keypress (function(event) {   
       
       var keycode = (event.keyCode ? event.keyCode : event.which); 
 
@@ -69,31 +67,66 @@ Player.constructor.prototype.move = $(document).keypress(function moveIt(event) 
 });
 
 
-Player.constructor.prototype.winOnce = $(document).keypress(function () {
+
+
+Player.constructor.prototype.winOnce = $(document).keypress (function () {
+  
   if (p1Moves >= 9) {
-    console.log("9moves");
     p1Wins++;
     alert("player1 wins");
-    $('.startPos1').animate({'margin-left': '-200px' }, 0);
-      p1Moves = 0;
-
-
-
+    //softReset();
+    console.log(p1Wins);
 }
+
   if (p2Moves >= 9) {
     p2Wins++;
     alert("player2 wins");
-
+    //softReset();
+    console.log(p2Wins);
   }
+
 });
 
-function softReset (){
-      $('.startPos1').css({'margin-left': 0 }, 0);
-      p1Moves = 0;
-}
 
 
+
+//<<<<<<<<<< Soft Reset Button >>>>>>>>>>
+$( "#soft-reset" ).click(function() {
+  $( ".startPos1" ).css({'margin-left': '0'});
+  p1Moves = 0;
+  $( ".startPos2" ).css({'margin-left': '0'});
+  p2Moves = 0;
+  });
+
+});
+
+
+
+
+//<<<<<<<<<< Soft Reset (Next Round) >>>>>>>>>>>>>>>>>>>>>>>
 /*
+function softReset() {
+  $( ".startPos1" ).css({'margin-left': '0'});
+  $( ".startPos2" ).css({'margin-left': '0'});
+    p1Moves = 0;
+    p2Moves = 0;
+};
+
+
+});
+
+*/
+/*
+    $('.startPos1').css('margin-left', '0px');
+      p1Moves = 0;
+      console.log(p1Wins +"p1Wins " + p1Moves +" p1Moves");
+
+
+    $('.startPos2').animate({'margin-left': '-200px' }, 0);
+      p2Moves = 0;
+      console.log(p2Wins +"p2Wins " + p2Moves +" p2Moves");
+
+
 Player.constructor.prototype.softReset = $(document).keypress(function () {
   this.position = 0;
 
