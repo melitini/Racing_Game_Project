@@ -16,7 +16,7 @@ This file is where you will document your project.
 
 
 ### Technologies Used
-HTML, CSS, JavaScript (OOP), JQuery. 
+HTML, CSS, JavaScript (OOP), JQuery. Illustrator, Music Player. 
 
 ###Existing features
 *What features does your new racing app have?*
