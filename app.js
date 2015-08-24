@@ -10,6 +10,7 @@ function Game (player1, player2, winner) {
 }
 
 // `Game.prototype.init` kicks off a new game with a board and two players
+/*
 Game.prototype.init = function() {
   $(document).keypress(function() {
 
@@ -18,7 +19,7 @@ Game.prototype.init = function() {
 
 
 };
-
+*/
 
 
 // A starter Player constructor.
@@ -67,25 +68,30 @@ Player.constructor.prototype.move = $(document).keypress (function(event) {
 });
 
 
-
-
-Player.constructor.prototype.winOnce = $(document).keypress (function () {
+Player.constructor.prototype.winOnce = $(document).keypress (function (winner) {
   
   if (p1Moves >= 9) {
     p1Wins++;
+    winner = player1;
+    $("p1Wins").text(p1Wins);
     alert("player1 wins");
     //softReset();
-    console.log(p1Wins);
+    console.log(p1Wins + " p1Wins");
 }
 
   if (p2Moves >= 9) {
     p2Wins++;
+    winner = player2;
+    $("p2Wins").text(p2Wins);
     alert("player2 wins");
     //softReset();
-    console.log(p2Wins);
+    console.log(p2Wins + " p2Wins");
   }
 
 });
+
+//<<<<<<<<<< Win Counter >>>>>>>>>>>>>>
+
 
 
 
