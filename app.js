@@ -4,7 +4,7 @@ $(function() {
 
       var p1Moves = 0;
       var p2Moves = 0;
-      var max = 11;
+      var max = 27;
       var p1Wins = 0;
       var p2Wins = 0;
 
@@ -71,13 +71,13 @@ Player.constructor.prototype.move = $(document).keypress (function(event) {
 
 Player.constructor.prototype.winOnce = $(document).keypress (function (winner) {
   
-  if (p1Moves >= 9) {
+  if (p1Moves >= max) {
     p1Wins++;
     alert("player1 wins");
     console.log(p1Wins + " p1Wins");
 }
 
-  if (p2Moves >= 9) {
+  if (p2Moves >= max) {
     p2Wins++;
     alert("player2 wins");
     console.log(p2Wins + " p2Wins");
